@@ -1,10 +1,14 @@
 /* initialise variables */
-var inputBody = document.querySelector('#files-json');
-var addBtn = document.querySelector('.add');
+var inputFiles = document.querySelector('#files-json');
+var addFilesBtn = document.querySelector('#add-files');
+
+var inputRepos = document.querySelector('#repos-json');
+var addReposBtn = document.querySelector('#add-repos');
 
 /*  add event listeners to buttons */
 
-addBtn.addEventListener('click', save);
+addFilesBtn.addEventListener('click', saveFiles);
+addReposBtn.addEventListener('click', saveRepos);
 
 /* display previously-saved stored notes on startup */
 
@@ -15,17 +19,33 @@ function initialize() {
     if (data.files === undefined) {
       data.files = ["\\.json", "\\.yaml"]
     }
-    inputBody.innerText = JSON.stringify(data["files"]);
+    if (data.repos === undefined) {
+      data.repos = [".*"]
+    }    
+    inputFiles.innerText = JSON.stringify(data.files);
+    inputRepos.innerText = JSON.stringify(data.repos);
   });
 }
 
 /* save the files */
 
-function save() {
-  var files = inputBody.value;
+function saveFiles() {
+  var files = inputFiles.value;
   var map = JSON.parse(files);
   chrome.storage.local.set({files: map}, function () {
-    alert("saved")
+    alert("saved files")
+
+  });
+
+}
+
+/* save the repos */
+
+function saveRepos() {
+  var repos = inputRepos.value;
+  var map = JSON.parse(repos);
+  chrome.storage.local.set({repos: map}, function () {
+    alert("saved repos")
 
   });
 

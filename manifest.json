@@ -10,6 +10,10 @@
   },
 
 
+  "icons": {
+    "48": "logos/swagger-penguin-logo48.png"
+  },
+
   "permissions": [
     "storage"
   ],

@@ -13,8 +13,16 @@
 
     <div class="raw-json">
       <h2>Files to enable the swagger parsing on</h2>
+      <p> The default value for this field is <code>["\\.json", "\\.yaml"]</code></p>
       <textarea id="files-json"></textarea>
-      <button class="add">Save Json</button>
+      <button id="add-files" class="add">Save Json</button>
+    </div>
+
+    <div class="raw-json">
+      <h2>Repos to enable the swagger parsing on</h2>
+      <p> The default value for this field is <code>[".*"]</code></p>
+      <textarea id="repos-json"></textarea>
+      <button id="add-repos" class="add">Save Json</button>
     </div>
 
   </div>

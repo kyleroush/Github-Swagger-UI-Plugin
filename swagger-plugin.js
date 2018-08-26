@@ -1,15 +1,23 @@
-var patterns = ["\\.json", "\\.yaml"]
+var filePatterns = ["\\.json", "\\.yaml"]
+var repoPatterns = [".*"]
 
 function initialize() {
     chrome.storage.local.get(function (data) {
         if (data.files === undefined) {
-          data.files = JSON.stringify(["\\.json", "\\.yaml"])
+            data.files = JSON.stringify(filePatterns);
         }
-        patterns = data["files"];
-        loopAllFiles()
+        if (data.repos === undefined) {
+            data.repos = JSON.stringify(repoPatterns);
+        }
+        filePatterns = data.files;
+        repoPatterns = data.repos;
+        loopAllFiles();
     });
 }
 function loopAllFiles() {
+    if(!repoMatches()) {
+        return;
+    }
 
     var fileHeaders = document.querySelectorAll('.file-header');
     fileHeaders.forEach(function(header){
@@ -27,8 +35,20 @@ function loopAllFiles() {
 function pathMatches(header) {
     var toReturn = false;
 
-    patterns.forEach((pat) => {
+    filePatterns.forEach((pat) => {
         if(header.dataset.path.match(RegExp(pat)) !== null) {
+            toReturn = true;
+        }
+    });
+
+    return toReturn;
+}
+
+function repoMatches(header) {
+    var toReturn = false;
+    var repo = location.pathname.split('/').slice(0,3).join('/');
+    repoPatterns.forEach((pat) => {
+        if(repo.match(RegExp(pat)) !== null) {
             toReturn = true;
         }
     });
