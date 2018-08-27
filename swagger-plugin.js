@@ -4,10 +4,10 @@ var repoPatterns = [".*"]
 function initialize() {
     chrome.storage.local.get(function (data) {
         if (data.files === undefined) {
-            data.files = JSON.stringify(filePatterns);
+            data.files = filePatterns;
         }
         if (data.repos === undefined) {
-            data.repos = JSON.stringify(repoPatterns);
+            data.repos = repoPatterns;
         }
         filePatterns = data.files;
         repoPatterns = data.repos;

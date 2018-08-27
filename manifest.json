@@ -3,7 +3,7 @@
   "description": "To embed swagger right in the github ui.",
   "manifest_version": 2,
   "name": "Github Swagger UI Plugin",
-  "version": "1.1",
+  "version": "1.1.1",
 
   "browser_action": {
     "default_popup": "popup/Settings.html"
