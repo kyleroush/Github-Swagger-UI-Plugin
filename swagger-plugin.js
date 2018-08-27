@@ -107,6 +107,9 @@ function getPath(header) {
     }
     var path = pathEl.attributes.href;
     var host = location.host;
+    if (host === "github.com") {
+        host = "githubusercontent.com";
+    }
 
     return `https://raw.${host}${path.value.replace('/blob', '').replace('/raw', '')}`;
 }
