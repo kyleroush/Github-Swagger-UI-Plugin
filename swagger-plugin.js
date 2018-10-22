@@ -13,6 +13,7 @@ function initialize() {
         repoPatterns = data.repos;
         loopAllFiles();
     });
+    
 }
 function loopAllFiles() {
     if(!repoMatches()) {
