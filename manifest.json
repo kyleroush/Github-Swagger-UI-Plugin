@@ -1,5 +1,4 @@
 {
-
   "description": "To embed swagger right in the github ui.",
   "manifest_version": 2,
   "name": "Github Swagger UI Plugin",
@@ -8,8 +7,6 @@
   "browser_action": {
     "default_popup": "popup/Settings.html"
   },
-
-
   "icons": {
     "48": "logos/swagger-penguin-logo48.png"
   },
