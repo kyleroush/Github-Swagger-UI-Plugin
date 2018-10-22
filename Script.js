@@ -1,6 +1,7 @@
 (function() {
   "use strict";
 
+  
   // This following code is taken from
   // https://github.com/thieman/github-selfies/blob/master/chrome/selfie.js
   var allowedPaths = [
