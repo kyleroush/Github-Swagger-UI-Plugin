@@ -102,7 +102,7 @@ function getPath(header) {
     var pathEl = header.querySelector('.file-actions').querySelector('#raw-url');
 
     if(pathEl === null) {
-        var pathEl = header.querySelector('.file-actions').querySelector('.btn.btn-sm.tooltipped.tooltipped-nw');
+        var pathEl = header.querySelector('.file-actions').querySelector('a.btn.btn-sm.BtnGroup-item');
 
     }
     var path = pathEl.attributes.href;
